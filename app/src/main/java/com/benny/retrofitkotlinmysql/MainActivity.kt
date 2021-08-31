@@ -2,6 +2,7 @@ package com.benny.retrofitkotlinmysql
 
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -43,19 +44,18 @@ class MainActivity : AppCompatActivity() {
                 nohp,
                 ukt
             )
-        ).enqueue(object: Callback<ModelMahasiswa>{
-            override fun onResponse(
-                call: Call<ModelMahasiswa>,
-                response: Response<ModelMahasiswa>
-            ) {
-                if(response.isSuccessful){
-                    Toast.makeText(applicationContext, "Sukses Input Data", Toast.LENGTH_SHORT)
-                        .show()
+        ).enqueue(object: Callback<CrudResponse>{
+            override fun onResponse(call: Call<CrudResponse>, response: Response<CrudResponse>) {
+                Log.d("response::", response.body()!!.message)
+                if(response.body()!!.value){
+                    Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_SHORT).show()
                 }
             }
 
-            override fun onFailure(call: Call<ModelMahasiswa>, t: Throwable) {
-                Toast.makeText(applicationContext, "Gagal input data", Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<CrudResponse>, t: Throwable) {
+                Log.d("error::", t.message!!)
             }
         })
     }
