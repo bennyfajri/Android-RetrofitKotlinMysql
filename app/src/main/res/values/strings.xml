@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">RetrofitKotlinMysql</string>
+    <string-array name="ukt">
+        <item>500000</item>
+        <item>1000000</item>
+        <item>1500000</item>
+        <item>2000000</item>
+        <item>2500000</item>
+        <item>3000000</item>
+
+    </string-array>
 </resources>
