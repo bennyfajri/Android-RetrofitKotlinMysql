@@ -15,4 +15,9 @@ interface ApiEndpoint {
     @GET("read.php")
     fun read(): Call<ModelMahasiswa>
 
+    @POST("update.php")
+    fun update(
+        @Body mahasiswa: ModelMahasiswa
+    ): Call<CrudResponse>
+
 }
