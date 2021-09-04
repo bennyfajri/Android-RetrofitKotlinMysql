@@ -20,4 +20,9 @@ interface ApiEndpoint {
         @Body mahasiswa: ModelMahasiswa
     ): Call<CrudResponse>
 
+    @POST("delete.php")
+    fun delete(
+        @Body mahasiswa: ModelMahasiswa
+    ): Call <CrudResponse>
+
 }
