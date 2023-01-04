@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                 nama,
                 email,
                 nohp,
-                ukt
             )
         ).enqueue(object: Callback<CrudResponse>{
             override fun onResponse(call: Call<CrudResponse>, response: Response<CrudResponse>) {
